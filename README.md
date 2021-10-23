@@ -6,7 +6,7 @@ A fullstack view on all the system components and the devops.
 
 To checkout with all submodules:
 
-    git clone --recurse-submodules -j8 ssh://git@gitea.girgis.me:32822/tube-recorder/fullstack.git
+    git clone --recurse-submodules -j8 git@github.com:TubeRecorder/fullstack.git
 
 To make sure `master` branch is checked out:
 
