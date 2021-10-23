@@ -1,0 +1,42 @@
+version: "3.4"
+
+services:
+  download:
+    image: my-build/download:latest
+    build:
+      context: ./download
+      dockerfile: Dockerfile
+    ports:
+      - "50051:50051"
+    networks:
+      - fullstack-network
+
+  web-middleware:
+    image: my-build/web-middleware:latest
+    build:
+      context: ./web-middleware
+      dockerfile: Dockerfile
+    ports:
+      - "50052:8081"
+    networks:
+      - fullstack-network
+
+  web-client:
+    image: my-build/web-client:latest
+    build:
+      context: ./web-client
+      dockerfile: Dockerfile
+    ports:
+      - "50053:80"
+    networks:
+      - fullstack-network
+    depends_on:
+      - "download"
+      - "web-middleware"
+
+# Connect to existing fullstack-network
+# can be created by: `docker network create fullstack-network`
+networks:
+  fullstack-network:
+    external:
+      name: fullstack-network

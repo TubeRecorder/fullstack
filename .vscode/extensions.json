@@ -1,0 +1,17 @@
+{
+  "recommendations": [
+    "matklad.rust-analyzer",
+    "tomi.xasnippets",
+    "tomi.xajssnippets",
+    "esbenp.prettier-vscode",
+    "ms-vscode.makefile-tools",
+    "ecmel.vscode-html-css",
+    "tamasfe.even-better-toml",
+    "dbaeumer.vscode-eslint",
+    "usernamehw.errorlens",
+    "vadimcn.vscode-lldb",
+    "streetsidesoftware.code-spell-checker",
+    "ms-vscode.vscode-typescript-tslint-plugin",
+    "zxh404.vscode-proto3"
+  ]
+}

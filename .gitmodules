@@ -1,0 +1,12 @@
+[submodule "devops"]
+	path = devops
+	url = ../devops
+[submodule "web-client"]
+	path = web-client
+	url = ../web-client
+[submodule "web-middleware"]
+	path = web-middleware
+	url = ../web-middleware
+[submodule "download"]
+	path = download
+	url = ../download

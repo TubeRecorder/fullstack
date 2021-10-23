@@ -1,0 +1,25 @@
+{
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.codeActionsOnSave": {},
+  "editor.insertSpaces": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "prettier.printWidth": 70,
+  // HTML
+  "html.format.endWithNewline": true,
+  "html.format.indentInnerHtml": true,
+  "html.format.indentHandlebars": true,
+  // Rust
+  "[rust]": {
+    "editor.defaultFormatter": "matklad.rust-analyzer"
+  },
+  "rust-analyzer.updates.channel": "nightly",
+  "rust-client.channel": "nightly",
+  // TOML
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  },
+  // ESLint
+  "eslint.run": "onSave",
+  "eslint.format.enable": true
+}
