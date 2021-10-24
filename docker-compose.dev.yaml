@@ -1,23 +1,15 @@
 version: "3.4"
 
 services:
-  postgres-db:
-    image: postgres
-    volumes:
-      - "./db/postgres:/docker-entrypoint-initdb.d"
-    environment:
-      - "POSTGRES_USER=admin"
-      - "POSTGRES_PASSWORD=admin_pass"
-    networks:
-      - default
-
   download:
     image: tube-recorder/download:latest
     build:
       context: ./download
       dockerfile: Dockerfile
+    ports:
+      - "50051:50051"
     networks:
-      - default
+      - fullstack-network
 
   web-middleware:
     image: tube-recorder/web-middleware:latest
@@ -35,7 +27,7 @@ services:
       - "DOWNLOAD_HOST=download"
       - "DOWNLOAD_PORT=50051"
     networks:
-      - default
+      - fullstack-network
     depends_on:
       - "postgres-db"
       - "download"
@@ -48,6 +40,13 @@ services:
     ports:
       - "8080:80"
     networks:
-      - default
+      - fullstack-network
     depends_on:
       - "web-middleware"
+
+# Connect to existing fullstack-network
+# can be created by: `docker network create fullstack-network`
+networks:
+  fullstack-network:
+    external:
+      name: fullstack-network
