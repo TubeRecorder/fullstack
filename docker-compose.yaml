@@ -2,7 +2,7 @@ version: "3.4"
 
 services:
   download:
-    image: my-build/download:latest
+    image: tube-recorder/download:latest
     build:
       context: ./download
       dockerfile: Dockerfile
@@ -12,7 +12,7 @@ services:
       - fullstack-network
 
   web-middleware:
-    image: my-build/web-middleware:latest
+    image: tube-recorder/web-middleware:latest
     build:
       context: ./web-middleware
       dockerfile: Dockerfile
@@ -22,7 +22,7 @@ services:
       - fullstack-network
 
   web-client:
-    image: my-build/web-client:latest
+    image: tube-recorder/web-client:latest
     build:
       context: ./web-client
       dockerfile: Dockerfile
