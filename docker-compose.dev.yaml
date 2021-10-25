@@ -19,14 +19,19 @@ services:
     ports:
       - "8081:8081"
     environment:
+      # Database
       - "DB_TYPE=postgres"
       - "DB_HOST=postgres-db"
       - "DB_PORT=5432"
       - "DB_NAME=test"
       - "DB_USER=test_user"
       - "DB_PASSWORD=test_pass"
+      # Download service
       - "DOWNLOAD_HOST=download"
       - "DOWNLOAD_PORT=50051"
+      # Configurations
+      - "MAX_CONCURRENT_DOWNLOADS=3"
+      - "DOWNLOAD_PERIOD_MINS=60"
     networks:
       - fullstack-network
     depends_on:

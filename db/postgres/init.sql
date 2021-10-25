@@ -10,6 +10,13 @@ CREATE TABLE downloads (
   PRIMARY KEY (entry_id)
 );
 
+-- a single table is used for all configs
+CREATE TABLE configs (
+  config_key text NOT NULL,
+  config_value text NOT NULL,
+  PRIMARY KEY (config_key)
+);
+
 CREATE
   USER
   db_user
@@ -21,6 +28,7 @@ ENCRYPTED PASSWORD
 GRANT
   ALL PRIVILEGES
 ON TABLE
-  downloads
+  downloads,
+  configs
 TO
   db_user;
