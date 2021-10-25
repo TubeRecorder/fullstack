@@ -3,10 +3,11 @@ CREATE DATABASE tuberecorder;
 
 -- a single table is used for all downloads
 CREATE TABLE downloads (
+  entry_id text NOT NULL,
   link_url text NOT NULL,
   local_path text NOT NULL,
   status int NOT NULL,
-  PRIMARY KEY (link_url)
+  PRIMARY KEY (entry_id)
 );
 
 CREATE
