@@ -5,17 +5,20 @@ services:
     image: postgres
     volumes:
       - "./db/postgres:/docker-entrypoint-initdb.d"
+      - "postgres_vol:/var/lib/postgresql/data"
+    networks:
+      - default
     environment:
       - "POSTGRES_USER=admin"
       - "POSTGRES_PASSWORD=admin_pass"
-    networks:
-      - default
 
   download:
     image: tube-recorder/download:latest
     build:
       context: ./download
       dockerfile: Dockerfile
+    volumes:
+      - downloads_vol:/downloads
     networks:
       - default
 
@@ -57,3 +60,7 @@ services:
       - default
     depends_on:
       - "web-middleware"
+
+volumes:
+  downloads_vol:
+  postgres_vol:

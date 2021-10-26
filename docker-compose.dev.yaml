@@ -6,6 +6,8 @@ services:
     build:
       context: ./download
       dockerfile: Dockerfile
+    volumes:
+      - downloads_vol:/downloads
     ports:
       - "50051:50051"
     networks:
@@ -35,7 +37,6 @@ services:
     networks:
       - fullstack-network
     depends_on:
-      - "postgres-db"
       - "download"
 
   web-client:
@@ -49,6 +50,9 @@ services:
       - fullstack-network
     depends_on:
       - "web-middleware"
+
+volumes:
+  downloads_vol:
 
 # Connect to existing fullstack-network
 # can be created by: `docker network create fullstack-network`
